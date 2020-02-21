@@ -1,0 +1,34 @@
+version: '3.7'
+
+services:
+  web:
+    image: ecceuk/craft-plugin-dev:latest
+    environment:
+      - CRAFT_PLUGIN=ecce-media/gdpr-cookie-monster
+      - APACHE_RUN_USER=www-data
+      - APACHE_RUN_GROUP=www-data
+    ports:
+      - 8000:80
+    volumes:
+      - .:/plugin
+      - .env:/var/www/.env
+      - ./craft/templates:/var/www/templates
+      - ./craft/web/assets:/var/www/web/assets
+    depends_on:
+      - db
+  db:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+        MYSQL_ROOT_PASSWORD: secret
+        MYSQL_DATABASE: craft
+        MYSQL_USER: craft
+        MYSQL_PASSWORD: craft
+    volumes:
+        - "ecce-mediagdpr-cookie-monster-db:/var/lib/msql"
+  adminer:
+    image: adminer
+    ports:
+      - 8080:8080
+volumes:
+  ecce-mediagdpr-cookie-monster-db:

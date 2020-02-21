@@ -1,0 +1,36 @@
+{
+    "name": "ecce-media/gdpr-cookie-monster",
+    "description": "A Craft CMS plugin the unleashes a monster that eats cookies for GDPR",
+    "type": "craft-plugin",
+    "version": "0.0.1",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craft-plugin"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "ecce",
+            "homepage": "https://ecce.uk"
+        }
+    ],
+    "require": {
+        "craftcms/cms": "^3.0.0-RC1"
+    },
+    "autoload": {
+        "psr-4": {
+          "Eccemedia\\GDPRCookieMonster\\": "src/"
+        }
+    },
+    "scripts": {},
+    "extra": {
+        "name": "GDPR Cookie Monster",
+        "handle": "gdpr-cookie-monster",
+        "hasCpSettings": false,
+        "hasCpSection": false,
+        "changelogUrl": "???",
+        "class": "Eccemedia\\GDPRCookieMonster\\GDPRCookieMonster"
+    }
+}
