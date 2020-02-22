@@ -19,12 +19,25 @@
     "require": {
         "craftcms/cms": "^3.0.0-RC1"
     },
+    "require-dev": {
+        "codeception/codeception": "^3.1.0",
+        "codeception/mockery-module": "^0.3",
+        "codeception/phpunit-wrapper": "^7.7",
+        "codeception/specify": "^0.4",
+        "codeception/verify": "^1.0",
+        "vlucas/phpdotenv": "^3.0",
+        "league/factory-muffin": "^3.0",
+        "fzaninotto/faker": "^1.8"
+    },
     "autoload": {
         "psr-4": {
-          "Eccemedia\\GDPRCookieMonster\\": "src/"
+          "Eccemedia\\GDPRCookieMonster\\": "src/",
+          "Tests\\": "tests/"
         }
     },
-    "scripts": {},
+    "scripts": {
+        "test": "docker run --rm -v $(pwd):/plugin -w /plugin php:7.4-cli vendor/bin/codecept run --steps"
+    },
     "extra": {
         "name": "GDPR Cookie Monster",
         "handle": "gdpr-cookie-monster",
