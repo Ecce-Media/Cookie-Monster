@@ -1,10 +1,11 @@
-version: '3.7'
+version: '3.3'
 
 services:
   web:
-    image: ecceuk/craft-plugin-dev:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
     environment:
-      - CRAFT_PLUGIN=ecce-media/gdpr-cookie-monster
       - APACHE_RUN_USER=www-data
       - APACHE_RUN_GROUP=www-data
     ports:
